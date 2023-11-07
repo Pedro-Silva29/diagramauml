@@ -1,4 +1,4 @@
-import java.lang.reflect.Array;
+
 import java.util.ArrayList;
 
 public class Biblioteca {
@@ -11,7 +11,6 @@ public class Biblioteca {
       }
 
      public void adicionarEbook(Ebook ebook){
-
           ebooks.add(ebook);
      }
      public void excluirEbook(Ebook ebook){
@@ -19,30 +18,30 @@ public class Biblioteca {
      }
 
 
-     public ArrayList<Ebook> listarTodosEbooks() {
-          ArrayList<Ebook> todosEbooks = new ArrayList<>();
-          todosEbooks.addAll(listarEbooksAutorais());
-          todosEbooks.addAll(listarEbooksAdquiridos());
-          return todosEbooks;
+     public void listarTodosEbooks() {
+           for (Ebook ebook : ebooks){
+               ebook.mostrarDados();
+
+           }
       }
 
-     public ArrayList<Ebook> listarEbooksAutorais() {
-          ArrayList<Ebook> ebooksAutorais = new ArrayList<>();
+     public void listarEbooksAutorais() {
+          
           for (Ebook ebook : ebooks) {
                if (ebook instanceof EbooksAutorais) {
-                    ebooksAutorais.add(ebook);
+                    ebook.mostrarDados();;
                }
           }
-          return ebooksAutorais;
+     
      }
 
-     public ArrayList<Ebook> listarEbooksAdquiridos() {
-          ArrayList<Ebook> ebooksAdquiridos = new ArrayList<>();
+     public void listarEbooksAdquiridos() {
+          
           for (Ebook ebook : ebooks) {
                if (ebook instanceof EbooksAdquiridos) {
-                    ebooksAdquiridos.add(ebook);
+                    ebook.mostrarDados();;
                }
           }
-          return ebooksAdquiridos;
+          
      }
 }
