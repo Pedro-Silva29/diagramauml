@@ -30,8 +30,5 @@ public class Editoras extends Usuario{
         livrosPatrocinados.add(ebook);
     }
 
-    public String getNome() {
-        return getNome();
-    }
-}
+   }
 
