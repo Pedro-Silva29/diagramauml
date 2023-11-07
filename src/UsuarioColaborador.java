@@ -2,12 +2,14 @@ import java.util.ArrayList;
 
 public class UsuarioColaborador extends Usuario{
     private String cpf;
-    private ArrayList<Ebook> ebooksEscritos;
+    private CarrinhoDeCompras carrinho;
+    private Biblioteca biblioteca;
 
-    public UsuarioColaborador(String cpf,String nome, String email,String endereco,String numeroContato) {
+    public UsuarioColaborador(String nome, String email,String endereco,String numeroContato,String cpf, CarrinhoDeCompras carrinho, Biblioteca biblioteca) {
         super(nome,email,endereco,numeroContato);
         this.cpf = cpf;
-        this.ebooksEscritos = new ArrayList<>();
+        this.carrinho = carrinho;
+        this.biblioteca = biblioteca;
     }
 
     public String getCpf() {
@@ -18,12 +20,20 @@ public class UsuarioColaborador extends Usuario{
         this.cpf = cpf;
     }
 
-    public ArrayList<Ebook> getEbooksEscritos() {
-        return ebooksEscritos;
+    public CarrinhoDeCompras getCarrinho() {
+        return carrinho;
     }
 
-    public void setEbooksEscritos(ArrayList<Ebook> ebooksEscritos) {
-        this.ebooksEscritos = ebooksEscritos;
+    public void setCarrinho(CarrinhoDeCompras carrinho) {
+        this.carrinho = carrinho;
+    }
+
+    public Biblioteca getBiblioteca() {
+        return biblioteca;
+    }
+
+    public void setBiblioteca(Biblioteca biblioteca) {
+        this.biblioteca = biblioteca;
     }
 
     public void adicionarEbook(Ebook ebook) {
@@ -32,6 +42,10 @@ public class UsuarioColaborador extends Usuario{
 
     public void excluirEbook(Ebook ebook) {
         ebooksEscritos.remove(ebook);
+    }
+
+    public void adiquirirEbook(Ebook ebook){
+        carrinho.adicionarEbook(ebook);
     }
 
 
